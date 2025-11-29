@@ -1,0 +1,938 @@
+/* === GLOBAL === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    overflow-x: hidden; /* cegah scroll horizontal */
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Manrope", serif;
+    color: #f5e7d3;
+    background: #0f0f0f; /* hanya warna solid */
+}
+
+.home {
+    min-height: 100vh;
+    padding-top: 140px;
+
+    background-image: 
+        linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.85)),
+        url(bg.png);
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+}
+
+/* === NAVBAR === */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 12px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0,0,0,0.15); 
+    backdrop-filter: blur(12px);   
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    z-index: 999;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #68562a;
+}
+
+.logo-icon img {
+    width: 85%;
+    height: 85%;
+    object-fit:contain;
+    margin-left: 3px;
+    margin-bottom: 3px;  
+    object-position: center;
+    display: block;
+
+}
+
+/* Text di sebelah logo */
+.logo-text h1 {
+    font-size: 20px;
+}
+
+.logo-text p {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* === NAV MENU === */
+.nav-menu a {
+    font-size: 14px;
+    margin-left: 20px;
+    color: #e6d5b8;
+    text-decoration: none;
+    border: 4px solid #6b5c3a;
+    padding-bottom: 5px;
+    padding: 10px 18px;
+    border-radius: 30px;
+    transition: 0.3s;
+}
+
+.nav-menu a:hover {
+    background: #b8943c;
+    color: #000;
+}
+
+/* === HERO SECTION === */
+.home h2 {
+    font-style: italic;
+    font-weight: bold; /* perbaikan properti tidak valid */
+    color: #e5c677;
+    font-size: 60px;
+    padding-bottom: 10px;
+    margin-top: 10px;
+}
+
+.home h2:first-child {
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 22px;
+    line-height: 1.6;
+    width: 70%;
+    margin: 0 auto 40px auto;
+    color: #e8d7b7;
+}
+
+/* === BUTTONS === */
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.btn {
+    padding: 15px 35px;
+    border-radius: 18px;
+    font-size: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.gold {
+    background: #b8943c;
+    color: #000;
+}
+
+.gold:hover {
+    background: #e5c677;
+}
+
+.blue {
+    background: #163c4c;
+    color: #d6dfdf;
+}
+
+.blue:hover {
+    background: #1f596b;
+}
+
+/* === SCROLL INDICATOR === */
+.scroll-indicator {
+    font-size: 38px;
+    margin-top: 60px;
+    opacity: 0.6;
+}
+
+.anggota-section {
+    background: #0f0f0f;
+    padding: 80px 40px;
+    
+}
+
+.anggota-section h1 {
+    text-align: center;
+    font-size: 36px;
+    color: #e1b850; /* warna emas sesuai border card */
+    margin-bottom: 50px;
+    font-weight: 700;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+.anggota-container {
+    width: 100%;
+    padding: 80px 60px;
+    text-align: center;
+}
+
+.anggota-container h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.anggota-container p {
+    font-size: 18px;
+    opacity: 0.8;
+    margin-bottom: 50px;
+}
+
+.anggota-row {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.anggota-card {
+    display: flex;
+    flex-direction: column;
+    width: 280px;
+    padding: 25px;
+    border-radius: 22px;
+    background: linear-gradient(to bottom right, #1b1b1b, #0f0f0f);
+    border: 1px solid rgba(209, 170, 74, 0.35);
+    box-shadow: 0 0 15px rgba(209, 170, 74, 0.1);
+    text-align: left;
+    background: #6c5113;
+    cursor: pointer;
+    transition: transform 0.25s ease, 
+                box-shadow 0.25s ease;
+}
+
+.anggota-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(209, 170, 74, 0.35);
+}
+
+.anggota-card:active {
+    transform: scale(0.97);
+    box-shadow: 0 2px 8px rgba(209, 170, 74, 0.2);
+}
+
+.anggota-top {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.anggota-foto {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    background: #222;
+    margin-bottom: 15px;
+}
+
+.anggota-foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* supaya proporsinya tetap */
+    border-radius: 12px; /* sama kaya div sebelumnya */
+}
+
+.anggota-top h1 {
+    font-size: 28px;
+    margin: 0;
+}
+
+.anggota-card h3 {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.anggota-card p {
+    font-size: 16px;
+    opacity: 0.9;
+    margin: 0;
+}
+
+.materi-section {
+    padding: 50px 0;
+    text-align: center;
+     background-image: 
+        linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.85)),
+        url(bg.png);
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #d1aa4a;
+    position: relative;
+}
+
+.materi-section h1 {
+    font-size: 40px;
+    margin-bottom: 40px;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+/* Slider Container */
+.materi-container {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+/* Slider Inner */
+.materi-slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Tiap Slide */
+.materi-slide {
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Konten Slide (kotak) */
+.materi-content {
+    display: flex;
+    background: #0f0f0f;
+    border: 1px solid rgba(209,170,74,0.35);
+    border-radius: 20px;
+    padding: 20px;
+    gap: 30px;
+    box-shadow: 0 0 20px rgba(209,170,74,0.2);
+    width: 90%;
+    min-height: 400px; 
+    min-width: 100px;
+    align-items: center; 
+}
+
+/* Gambar di kiri */
+.materi-content img {
+    width: 23%;
+    border-radius: 15px;
+    object-fit: cover;
+    margin-left: 15px;
+    cursor: pointer;
+    transition: transform 0.25s ease, 
+                box-shadow 0.25s ease;
+}
+
+.materi-content img:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(209, 170, 74, 0.35);
+}
+
+.materi-content img:active {
+    transform: scale(0.97);
+    box-shadow: 0 2px 8px rgba(209, 170, 74, 0.2);
+}
+
+/* Teks di kanan */
+.materi-text {
+    width: 90%;
+    max-width: 600px;
+    text-align: left;
+    line-height: 1.7;
+    padding-right: 20px;
+}
+
+.materi-text h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.materi-text h1 {
+    font-size: 15px;
+    margin-bottom: 15px;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+.materi-text p {
+    font-size: 12px;
+    color: rgb(231, 231, 185);
+    opacity: 0.9;
+    text-align: justify;
+}
+
+/* tombol next prev */
+.prev, .next {
+    background-color: rgba(209, 170, 74, 0.8);
+    border: none;
+    color: #000;
+    font-size: 40px;
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    transition: 0.2s;
+}
+
+/* Posisi tombol */
+.prev { left: 25px; }
+.next { right: 25px; }
+
+/* Hover effect */
+.prev:hover, .next:hover {
+    background-color: rgba(209, 170, 74, 1);
+}
+
+/* === Section Terakhir === */
+.akhir {
+    padding: 50px 0;
+    text-align: center;
+    background-size: cover;
+    color: #d1aa4a;
+    position: relative;
+}
+
+.akhir h1 {
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* === ADDITIONS: Modern interactive styles (no removal, only appended) === */
+
+/* Global utility effects */
+:root {
+    --gold: #d1aa4a;
+    --gold-soft: rgba(209,170,74,0.35);
+    --bg: #0f0f0f;
+    --glass: rgba(0,0,0,0.25);
+    --text: #f5e7d3;
+    --accent: #1f596b;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(1000px 500px at 10% -5%, rgba(255,255,255,0.06), transparent 40%),
+                radial-gradient(800px 500px at 90% 105%, rgba(209,170,74,0.08), transparent 35%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Particles decorative layer */
+.bg-particles {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    opacity: 0.35;
+    pointer-events: none;
+    background-image:
+        radial-gradient(2px 2px at 10% 20%, rgba(209,170,74,0.35), transparent),
+        radial-gradient(2px 2px at 80% 30%, rgba(255,255,255,0.25), transparent),
+        radial-gradient(2px 2px at 25% 85%, rgba(209,170,74,0.25), transparent),
+        radial-gradient(2px 2px at 60% 60%, rgba(255,255,255,0.15), transparent);
+    animation: twinkle 8s ease-in-out infinite;
+}
+@keyframes twinkle {
+    0%,100% { opacity: 0.25; filter: blur(0px); }
+    50% { opacity: 0.6; filter: blur(1px); }
+}
+
+/* Navbar upgrades */
+.navbar {
+    background: var(--glass);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    transition: transform 0.35s ease, background 0.35s ease, box-shadow 0.35s ease;
+    box-shadow: 0 6px 30px rgba(0,0,0,0.25);
+}
+.navbar::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 5%;
+    width: 90%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    opacity: 0.55;
+}
+
+/* Hide on scroll down, reveal on up */
+.navbar.nav-hidden {
+    transform: translateY(-100%);
+}
+.navbar.nav-solid {
+    background: rgba(15,15,15,0.65);
+    backdrop-filter: blur(16px);
+}
+
+/* Nav links: underline hover */
+.nav-menu a {
+    position: relative;
+    overflow: hidden;
+}
+.nav-menu a::after {
+    content: "";
+    position: absolute;
+    left: 12px;
+    bottom: 8px;
+    width: calc(100% - 24px);
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    transform: translateX(-120%);
+    transition: transform 0.35s ease;
+}
+.nav-menu a:hover::after {
+    transform: translateX(0);
+}
+
+/* Mobile nav toggle */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    gap: 5px;
+    padding: 8px;
+}
+.nav-toggle span {
+    display: block;
+    width: 26px;
+    height: 2px;
+    background: var(--text);
+    margin: 5px 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.nav-toggle.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+.nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+.nav-toggle.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Responsive nav menu */
+@media (max-width: 840px) {
+    .nav-toggle { display: block; }
+    .nav-menu {
+        position: fixed;
+        top: 64px;
+        right: 20px;
+        background: rgba(0,0,0,0.75);
+        backdrop-filter: blur(12px);
+        padding: 16px;
+        border-radius: 16px;
+        display: grid;
+        gap: 10px;
+        transform: translateY(-20px) scale(0.95);
+        opacity: 0;
+        pointer-events: none;
+        transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+    .nav-menu.open {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+        pointer-events: auto;
+    }
+    .nav-menu a {
+        margin-left: 0;
+    }
+}
+
+/* Hero parallax and entrance */
+.home {
+    position: relative;
+    z-index: 1;
+}
+.home::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.35) 30%, rgba(0,0,0,0.7) 100%);
+    pointer-events: none;
+}
+.home h2 {
+    letter-spacing: 1px;
+    text-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    animation: fadeUp 0.8s ease both 0.1s;
+}
+.subtitle {
+    animation: fadeUp 0.8s ease both 0.2s;
+}
+.hero-buttons { animation: fadeUp 0.8s ease both 0.3s; }
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Magnetic buttons */
+.btn {
+    position: relative;
+    isolation: isolate;
+}
+.btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(400px 200px at var(--mx,50%) var(--my,50%), rgba(255,255,255,0.15), transparent 45%);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    z-index: -1;
+}
+.btn:hover::before { opacity: 1; }
+
+/* Scroll cue */
+.scroll-cue {
+    margin-top: 60px;
+    color: #e8d7b7;
+    opacity: 0.75;
+    display: grid;
+    place-items: center;
+    gap: 10px;
+    animation: float 3s ease-in-out infinite;
+}
+.scroll-cue .mouse {
+    width: 28px;
+    height: 44px;
+    border: 2px solid #e8d7b7;
+    border-radius: 16px;
+    position: relative;
+}
+.scroll-cue .wheel {
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    width: 4px;
+    height: 8px;
+    border-radius: 3px;
+    background: #e8d7b7;
+    transform: translateX(-50%);
+    animation: wheel 1.6s ease-in-out infinite;
+}
+@keyframes wheel {
+    0% { transform: translate(-50%, 0); opacity: 1; }
+    100% { transform: translate(-50%, 12px); opacity: 0; }
+}
+@keyframes float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+
+/* Anggota cards 3D tilt & outline glow */
+.anggota-card {
+    background: linear-gradient(180deg, rgba(108,81,19,0.9), rgba(25,20,6,0.95));
+    position: relative;
+    overflow: hidden;
+}
+.anggota-card::after {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: 22px;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(209,170,74,0.6), rgba(255,255,255,0.06));
+    -webkit-mask: 
+        linear-gradient(#000 0 0) content-box, 
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+.anggota-card:hover {
+    transform: translateY(-8px) scale(1.02) rotateX(1deg) rotateY(-1deg);
+}
+
+/* Ripple hover effect */
+.anggota-card .ripple {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    animation: ripple 0.6s ease-out;
+    background: radial-gradient(10px 10px at center, rgba(255,255,255,0.25), transparent 70%);
+}
+@keyframes ripple {
+    from { width: 0; height: 0; opacity: 0.6; }
+    to { width: 180px; height: 180px; opacity: 0; }
+}
+
+/* Materi slider enhanced */
+.materi-container {
+    perspective: 1000px;
+}
+.materi-content {
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+.materi-content:hover {
+    transform: translateZ(14px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.35), 0 0 20px rgba(209,170,74,0.2);
+    border-color: rgba(209,170,74,0.55);
+}
+/* Progress bar */
+.slider-progress {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    height: 4px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 4px;
+    overflow: hidden;
+}
+.slider-progress .bar {
+    display: block;
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #b8943c, #e5c677);
+    transition: width 0.35s ease;
+}
+/* Dots navigation */
+.slider-dots {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 16px;
+}
+.slider-dots button {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255,255,255,0.25);
+    cursor: pointer;
+    transition: transform 0.25s ease, background 0.25s ease;
+}
+.slider-dots button.active {
+    background: #d1aa4a;
+    transform: scale(1.4);
+}
+
+/* Prev/Next buttons pulse */
+.prev, .next {
+    box-shadow: 0 6px 18px rgba(209,170,74,0.35);
+}
+.prev:hover, .next:hover {
+    transform: translateY(-50%) scale(1.06);
+}
+
+/* Lightbox */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+}
+.lightbox.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+.lightbox-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.75);
+    backdrop-filter: blur(4px);
+}
+.lightbox-image {
+    max-width: min(90vw, 1100px);
+    max-height: 80vh;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    border: 1px solid rgba(209,170,74,0.35);
+    transform: translateY(8px) scale(0.98);
+    opacity: 0;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+.lightbox.open .lightbox-image {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+.lightbox-close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    border: none;
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    font-size: 22px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+.lightbox-close:hover {
+    background: rgba(255,255,255,0.25);
+}
+
+/* Scroll reveal utility classes */
+.reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: transform 0.6s ease, opacity 0.6s ease;
+}
+.reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Media tweaks */
+@media (max-width: 980px) {
+    .materi-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .materi-content img {
+        width: 70%;
+        margin: 0 auto;
+    }
+    .materi-text {
+        width: 100%;
+        padding-right: 0;
+        text-align: left;
+    }
+}
+
+/* Tambahan: background glow lebih menyala */
+.bg-glow {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+    background:
+      radial-gradient(1200px 700px at 10% 0%, rgba(229,198,119,0.12), transparent 45%),
+      radial-gradient(900px 600px at 95% 100%, rgba(31,89,107,0.20), transparent 40%),
+      radial-gradient(700px 500px at 50% 20%, rgba(209,170,74,0.18), transparent 50%);
+    filter: saturate(1.15) brightness(1.05);
+    animation: glowPulse 12s ease-in-out infinite alternate;
+}
+@keyframes glowPulse {
+    0% { filter: saturate(1.05) brightness(1.0); transform: translate3d(0,0,0); }
+    100% { filter: saturate(1.25) brightness(1.12); transform: translate3d(0,-6px,0); }
+}
+
+/* Tingkatkan “nyala” di hero dan materi via overlay halus */
+.home::after,
+.materi-section::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(700px 350px at 50% 15%, rgba(255,255,255,0.06), transparent 55%);
+    mix-blend-mode: screen;
+    opacity: 0.6;
+}
+
+/* Custom Cursor Styles */
+.cursor {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 10000;
+}
+.cursor-dot,
+.cursor-ring {
+    position: fixed;
+    top: 0; left: 0;
+    transform: translate(-50%, -50%);
+}
+.cursor-dot {
+    width: 8px; height: 8px;
+    background: #e5c677;
+    border-radius: 50%;
+    box-shadow: 0 0 12px rgba(229,198,119,0.6), 0 0 24px rgba(209,170,74,0.35);
+    transition: transform 0.12s ease, opacity 0.2s ease, background 0.2s ease;
+}
+.cursor-ring {
+    width: 28px; height: 28px;
+    border-radius: 999px;
+    border: 2px solid rgba(209,170,74,0.75);
+    box-shadow: 0 0 20px rgba(209,170,74,0.25);
+    transition: transform 0.2s ease, width 0.2s ease, height 0.2s ease, border-color 0.2s ease;
+    backdrop-filter: blur(1px);
+}
+/* States */
+.cursor--link .cursor-ring {
+    width: 38px; height: 18px; /* oval untuk link/button */
+    border-color: rgba(229,198,119,0.95);
+}
+.cursor--image .cursor-ring {
+    width: 30px; height: 30px; /* lebih square-feel */
+    border-radius: 14px;
+    border-color: rgba(31,89,107,0.9);
+}
+.cursor--card .cursor-ring {
+    width: 46px; height: 46px;
+    border-color: rgba(209,170,74,1);
+}
+.cursor--down .cursor-dot {
+    transform: translate(-50%, -50%) scale(0.85);
+}
+/* Click ripple feedback */
+.cursor-ripple {
+    position: fixed;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(229,198,119,0.8), transparent 60%);
+    animation: cursorRipple 400ms ease-out forwards;
+    pointer-events: none;
+    z-index: 9999;
+}
+@keyframes cursorRipple {
+    from { opacity: 0.8; width: 10px; height: 10px; }
+    to { opacity: 0; width: 80px; height: 80px; }
+}
+
+/* Trail highlights (tipis, performa aman) */
+.cursor-trail {
+    position: fixed;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: rgba(229,198,119,0.35);
+    box-shadow: 0 0 10px rgba(209,170,74,0.35);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    animation: trailFade 0.6s ease-out forwards;
+    z-index: 9998;
+}
+@keyframes trailFade {
+    from { opacity: 0.5; }
+    to { opacity: 0; transform: translate(-50%, -50%) scale(0.6); }
+}
+
+/* Pastikan cursor tidak mengganggu elemen interaktif */
+a, button { cursor: none; }
+body { cursor: none; }
+.materi-content img, .anggota-card { cursor: none; }
