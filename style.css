@@ -1,3 +1,93 @@
+/* === PRELOADER STYLES (ditambahkan) === */
+:root {
+    --pre-bg: #0f0f0f;
+    --pre-gold: #d1aa4a;
+    --pre-text: #f5e7d3;
+}
+
+#preloader {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(180deg, rgba(15,15,15,1) 0%, rgba(10,10,10,1) 100%);
+    pointer-events: auto;
+
+    /* DIPERLAMA */
+    transition: opacity 4500ms ease, visibility 4500ms ease;
+    opacity: 1;
+    visibility: visible;
+}
+
+#preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* inner box to center content */
+#preloader .preloader-inner {
+    text-align: center;
+    transform-origin: center;
+
+    /* DIPERLAMA */
+    animation: prePulse 2000ms ease-in-out 1;
+}
+
+/* logo text */
+.preloader-logo .preloader-text {
+    display: inline-block;
+    font-family: "Manrope", sans-serif;
+    font-weight: 800;
+    color: var(--pre-gold);
+    font-size: 46px;
+    letter-spacing: 1px;
+    text-shadow: 0 6px 20px rgba(0,0,0,0.6);
+    transform: translateY(0);
+
+    /* DIPERLAMA */
+    animation: logoFloat 2000ms ease-in-out infinite;
+}
+
+/* small subtitle */
+.preloader-sub {
+    margin-top: 10px;
+    color: var(--pre-text);
+    opacity: 0.9;
+    font-size: 14px;
+}
+
+/* subtle mask reveal (SVG) - we animate scaleY to create a wipe effect */
+.preloader-mask {
+    position: absolute;
+    inset: 0;
+    z-index: 99998;
+    pointer-events: none;
+    transform-origin: top center;
+
+    /* DIPERLAMA */
+    animation: maskReveal 3500ms cubic-bezier(.2,.9,.3,1) 1;
+}
+
+/* animations */
+@keyframes logoFloat {
+    0% { transform: translateY(0); opacity: 0.9; }
+    50% { transform: translateY(-8px); opacity: 1; }
+    100% { transform: translateY(0); opacity: 0.9; }
+}
+
+@keyframes prePulse {
+    0% { transform: scale(0.985); opacity: 0.9; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes maskReveal {
+    0% { transform: scaleY(1); opacity: 1; }
+    100% { transform: scaleY(0); opacity: 0; }
+}
+
+/* ========================= */
 /* === GLOBAL === */
 * {
     margin: 0;
@@ -10,6 +100,10 @@ html, body {
     overflow-x: hidden; /* cegah scroll horizontal */
     scroll-behavior: smooth;
 }
+
+/* NOTE: saat preloader tampil, body overflow akan dikendalikan via JS */
+
+/* (rest of CSS follows unchanged; pasted as you provided) */
 
 body {
     font-family: "Manrope", serif;
@@ -397,6 +491,7 @@ body {
 /* Posisi tombol */
 .prev { left: 25px; }
 .next { right: 25px; }
+
 
 /* Hover effect */
 .prev:hover, .next:hover {
