@@ -1,3 +1,30 @@
+// === PRELOADER HANDLER (ditambahkan) ===
+(function() {
+  const pre = document.getElementById('preloader');
+  // sembunyikan scroll selama preloader aktif
+  document.documentElement.style.overflow = 'hidden';
+  document.body.style.overflow = 'hidden';
+
+  // Menunggu seluruh resource termuat
+  window.addEventListener('load', () => {
+    // beri waktu sedikit agar animasi maskReveal selesai (900ms di CSS)
+    setTimeout(() => {
+      if (!pre) return;
+      pre.classList.add('hidden');
+
+      // setelah transisi selesai, lepaskan overflow dan remove node (bersih)
+      setTimeout(() => {
+        document.documentElement.style.overflow = '';
+        document.body.style.overflow = '';
+        // optional: remove preloader from DOM after hidden
+        try {
+          pre.remove();
+        } catch(e) { /* ignore */ }
+      }, 800);
+    }, 700); // berikan 700ms sebelum mulai hide
+  });
+})();
+
 // ===== Slider dasar (dipindahkan dari CSS) =====
 const slider = document.querySelector('.materi-slider');
 const slides = document.querySelectorAll('.materi-slide');
